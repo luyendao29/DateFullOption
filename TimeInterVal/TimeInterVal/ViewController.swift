@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     func convertToTimeStamp() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
-        let date1 = dateFormatter.date(from: "Apr 15, 2019")
+        let date1 = dateFormatter.date(from: "Apr 15, 2015")
         let date2 = dateFormatter.date(from: getStringDate())
         let dateStamp1: TimeInterval = date1!.timeIntervalSince1970
         let dateStamp2: TimeInterval = date2!.timeIntervalSince1970
@@ -45,9 +45,9 @@ class ViewController: UIViewController {
         
         if let date1 = date1, let date2 = date2 {
             
-            let day0 = Calendar.current.dateComponents([.month], from: date1, to: date2)
+            let day0 = Calendar.current.dateComponents([.day], from: date1, to: date2)
             
-            print("%@", day0.month)
+            print("%@", day0.day ?? "")
             
             var componentsNow = Calendar.current.dateComponents([.month, .day, .year], from: date1, to: date2)
             if let month = componentsNow.month, let day = componentsNow.day, let year = componentsNow.year {
